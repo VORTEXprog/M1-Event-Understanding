@@ -1,0 +1,18 @@
+name: Feature request
+description: Propose an interface, mechanism or documentation improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and intended behavior
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change and validation
+      description: Explain how the behavior would be tested and any compatibility implications.
+    validations:
+      required: true
+

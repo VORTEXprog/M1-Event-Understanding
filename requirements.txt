@@ -1,0 +1,5 @@
+# Reproducible core profile. Install the desired PyTorch CPU/CUDA build first.
+torch==2.13.0
+numpy==2.5.2
+safetensors==0.8.0
+

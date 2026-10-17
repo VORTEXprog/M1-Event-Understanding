@@ -1,0 +1,25 @@
+name: Bug report
+description: Report a reproducible implementation defect using invented inputs.
+labels: [bug]
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Use invented data. Do not attach credentials, private text or model assets.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Versions and platform
+      description: Package/Python/PyTorch versions and CPU or GPU build; omit machine identifiers and local paths.
+    validations:
+      required: true
+

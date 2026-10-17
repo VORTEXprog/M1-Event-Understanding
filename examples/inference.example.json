@@ -1,0 +1,6 @@
+{
+  "binding_kind": "full_context83",
+  "binding_mode": "FULL_CONTEXT",
+  "type_architecture": "shared_bigru16",
+  "torch_num_threads": 2
+}
