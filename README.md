@@ -187,6 +187,14 @@ or supplying tensor shapes alone does not establish model compatibility.
 5. Consider trained weights and additional providers only after rights, resource
    measurements and model-quality evidence are available.
 
+## Research challenges
+
+Interested in independently reviewing event localization, argument-role binding,
+or multi-event composition? See [Research Challenges](docs/RESEARCH_CHALLENGES.md)
+for current questions, code entry points, and links to open research issues.
+This is a source-only preview; its implementation tests do not establish model
+accuracy, and no trained checkpoints or independent benchmark are included.
+
 ## Contributing and license
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md), run the tests, then open a focused
