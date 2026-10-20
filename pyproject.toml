@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "m1-understanding"
 version = "0.1.0a1"
-description = "Experimental modular current-turn event understanding with explicit feature and model interfaces"
+description = "Experimental modular event understanding with explicit feature and model interfaces"
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
@@ -22,6 +22,12 @@ classifiers = [
 
 [project.optional-dependencies]
 test = ["pytest==9.1.1"]
+provider = ["transformers==5.15.0", "tokenizers==0.22.2", "huggingface-hub==1.27.0", "accelerate==1.14.0"]
+
+[project.urls]
+Repository = "https://github.com/XRedMzK/M1-Event-Understanding"
+Issues = "https://github.com/XRedMzK/M1-Event-Understanding/issues"
+Documentation = "https://github.com/XRedMzK/M1-Event-Understanding/tree/main/docs"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -23,3 +23,8 @@ __all__ = [
     'canonicalizer_from_state', 'slots_from_state', 'CanonicalUnit', 'segment_text',
     'TYPES', 'ROLE_ORDER', 'POLARITY_ORDER', 'RELATION_ORDER',
 ]
+
+from .experimental import (load_experimental_checkpoint, ExperimentalCheckpoint,
+    canonicalizer128_from_state, routed_canonicalizer_from_state, canonicalize_components)
+__all__ += ['load_experimental_checkpoint', 'ExperimentalCheckpoint',
+    'canonicalizer128_from_state', 'routed_canonicalizer_from_state', 'canonicalize_components']
