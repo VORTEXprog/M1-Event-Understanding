@@ -13,7 +13,7 @@ canonicalizer maps participant mentions to symbols within a limited inventory.
 trained states do not meet all project quality criteria. It is not a completed
 M1 v1.5 release or a production-ready language-understanding system. See
 [Experimental Checkpoints](#experimental-checkpoints) for the first trained
-checkpoint candidate and its measured limitations.
+checkpoint and its measured limitations.
 
 Trained weights and donor-model assets are separate from this source repository.
 The two existing feature examples use invented features and untrained states to
@@ -62,18 +62,18 @@ The [API reference](docs/API.md) defines the complete output and numeric IDs.
 
 ## Experimental Checkpoints
 
-**M1 Experimental 1** is a prepared research checkpoint candidate. It is not a
-new architecture version and does not claim completed M1 qualification. The
-candidate contains genuinely trained component states, with compatibility,
-integrity and numerical parity checked separately from semantic quality.
+**M1 Experimental 1** is a published research checkpoint, marked **Pre-release**.
+It is not a new architecture version and does not claim completed M1
+qualification. The checkpoint contains genuinely trained component states, with
+compatibility, integrity and numerical parity checked separately from semantic
+quality.
 
-No Experimental 1 weights or GitHub Release have been published yet. After
-explicit publication approval, the intended pre-release page is
-[`experimental-1`](https://github.com/XRedMzK/M1-Event-Understanding/releases/tag/experimental-1)
-(a reserved future link, not a current download). Binaries belong in release
-attachments and are excluded from ordinary Git history.
+Download the weights and checksums from
+[`experimental-1`](https://github.com/XRedMzK/M1-Event-Understanding/releases/tag/experimental-1).
+Binaries are release attachments and are excluded from ordinary Git history.
+The release targets source commit `426d13fb767fca286e960c123d84c53130e19de6`.
 
-See the [candidate composition, exact results and known errors](docs/EXPERIMENTAL_1.md)
+See the [checkpoint composition, download commands, exact results and known errors](docs/EXPERIMENTAL_1.md)
 and the [Feature Provider audit](docs/FEATURE_PROVIDER.md) before attempting real
 inference. Compatible feature origins matter: an arbitrary encoder with the same
 output width cannot replace the provider used to train these weights.

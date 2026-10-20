@@ -1,9 +1,15 @@
 # M1 Experimental 1
 
-Unpublished **pre-release candidate**, prepared on 2026-10-20. This is a
-checkpoint of an ongoing experiment, not a new architecture release, M1 v1.5,
-a completed M1 qualification, or a production-ready model. Release assets have
-not been uploaded; the future tag is `experimental-1`.
+Published **Pre-release**:
+[M1 Experimental 1](https://github.com/XRedMzK/M1-Event-Understanding/releases/tag/experimental-1).
+This is a checkpoint of an ongoing experiment, not a new architecture release,
+M1 v1.5, a completed M1 qualification, or a production-ready model. The release
+targets source commit `426d13fb767fca286e960c123d84c53130e19de6`.
+
+The archive was frozen during preparation on 2026-10-20, before publication
+approval. Its enclosed documentation and `published: false` preparation metadata
+record that earlier state; the published bytes and trained tensors are unchanged.
+This repository's documentation records the subsequent publication.
 
 Public inference implementation: [e18efe6](https://github.com/XRedMzK/M1-Event-Understanding/commit/e18efe6dec031aa7b5ac80f7595134c76c6f283e). This commit changes loading/provider utilities, not the trained parameter values.
 
@@ -104,26 +110,43 @@ or slot domains are not silently imposed on the component result. No calibrated
 confidence, memory/dialogue application, unrestricted ontology or completed
 three-origin/final qualification is supplied.
 
-## Obtaining and running the candidate
+## Obtaining and running the checkpoint
 
-There is no current public weight download. After owner approval, the intended
-release is [M1 Experimental 1](https://github.com/XRedMzK/M1-Event-Understanding/releases/tag/experimental-1),
-marked **Pre-release**, with the separately prepared archive and checksums.
-This is a future destination, not evidence that a release already exists.
+Download the archive and checksum attachment from the published
+[M1 Experimental 1 Pre-release](https://github.com/XRedMzK/M1-Event-Understanding/releases/tag/experimental-1):
+
+```bash
+curl --fail --location \
+  https://github.com/XRedMzK/M1-Event-Understanding/releases/download/experimental-1/m1-experimental-1.tar.gz \
+  --output m1-experimental-1.tar.gz
+curl --fail --location \
+  https://github.com/XRedMzK/M1-Event-Understanding/releases/download/experimental-1/SHA256SUMS \
+  --output SHA256SUMS
+sha256sum --check SHA256SUMS
+printf '%s  %s\n' \
+  6e72a0893767ea8206a9440d9a54697e8f051b67e8db7fe4f11022b75aea6061 \
+  m1-experimental-1.tar.gz | sha256sum --check -
+tar -xzf m1-experimental-1.tar.gz
+```
+
+The archive SHA-256 is
+`6e72a0893767ea8206a9440d9a54697e8f051b67e8db7fe4f11022b75aea6061`.
+Compare the commitment through a trusted channel independent of the downloaded
+archive; matching checksums establish integrity, not model quality.
 
 Use Python 3.12 and install the exact dependencies and feature donor described in
 [Feature Provider](FEATURE_PROVIDER.md). The donor is obtained separately from
 its official source, at the pinned revision. It is not bundled into M1 weights.
 No substitute encoder with matching dimensions is compatible by assumption.
 
-After extracting an approved candidate and independently verifying its top-level
+After extracting the checkpoint and independently verifying its top-level
 manifest commitment:
 
 ```bash
 python examples/infer_text.py \
   --checkpoint ./m1-experimental-1 \
   --manifest-sha256 d00f28e9f8f0591a6ee465670490f45a9de9ab15194ca2d1e886fbab41b8f63c \
-  --donor ./models/qwen35-2b-base \
+  --donor ./qwen35-2b-base \
   --device cuda:0 --language en --text 'Cedric opened the trunk.'
 ```
 

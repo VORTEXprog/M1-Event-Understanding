@@ -43,7 +43,7 @@
     }
   ],
   "parameter_count": 15268045,
-  "published": false,
+  "published": true,
   "tensor_count": 308,
   "top_manifest_sha256": "d00f28e9f8f0591a6ee465670490f45a9de9ab15194ca2d1e886fbab41b8f63c",
   "trust": "Obtain this commitment record independently of the downloaded bundle; hashes establish integrity, not quality or ownership.",

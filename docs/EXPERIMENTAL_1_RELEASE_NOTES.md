@@ -1,8 +1,15 @@
-# M1 Experimental 1 — candidate release notes
+# M1 Experimental 1 — release notes
 
-**Pre-release. Unpublished; owner approval required before upload.**
-Proposed tag: `experimental-1`. This is a public experimental trained checkpoint,
-not M1 v1.5, a stable release or completed M1 qualification.
+**Published Pre-release:**
+[M1 Experimental 1](https://github.com/XRedMzK/M1-Event-Understanding/releases/tag/experimental-1).
+Tag: `experimental-1`, targeting source commit
+`426d13fb767fca286e960c123d84c53130e19de6`. This is a public experimental trained
+checkpoint, not M1 v1.5, a stable release or completed M1 qualification.
+
+The approved archive is unchanged from its 2026-10-20 preparation. Its enclosed
+unpublished-status metadata is a preparation record, predating approval; current
+publication status is recorded here. Archive SHA-256:
+`6e72a0893767ea8206a9440d9a54697e8f051b67e8db7fe4f11022b75aea6061`.
 
 ## Included
 
@@ -58,11 +65,11 @@ obtaining the pinned files. Historical full DEV metrics are reported, with
 source-evidence digests, but the undistributed research corpus prevents an
 independent rerun of that entire evaluation from release assets alone. Fixed
 real-feature and native/public parity checks are implementation evidence, not
-an independent benchmark or final qualification. Final preparation/test results
-will accompany the candidate before the owner decides whether to publish.
+an independent benchmark or final qualification. The completed preparation and
+test results below accompany the published checkpoint.
 
 
-## Completed candidate checks
+## Completed preparation checks
 
 Clean installed-wheel tests:140 PASS / 0 FAIL / 0 SKIP in65.29 seconds; both invented
 examples and all 68 submodule imports PASS, no CUDA initialization on import.

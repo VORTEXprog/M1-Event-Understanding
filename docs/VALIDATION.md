@@ -64,8 +64,8 @@ results must be checked for the particular public commit.
 All factor-quality qualifications remain open in this public release: exact
 localization, conditional type identity, full-span/cross-event argument binding,
 polarity on predicted spans and directed relations in the integrated pipeline.
-The separately prepared [Experimental 1 checkpoint](EXPERIMENTAL_1.md) is a
-pre-release candidate whose weights have not been published. It has a pinned
+The published [Experimental 1 checkpoint](EXPERIMENTAL_1.md) is marked
+Pre-release, with weights available as release attachments. It has a pinned
 provider and real-feature parity evidence, but no public full training recipe or
 redistributable independent end-to-end corpus. Historical RAW quality gates fail.
 The implementation and parity checks must not be presented as substitutes for
