@@ -1,0 +1,52 @@
+{
+  "checkpoint": "M1 Experimental 1",
+  "files": [
+    {
+      "bytes": 2348,
+      "name": "CHECKPOINT.json",
+      "sha256": "d00f28e9f8f0591a6ee465670490f45a9de9ab15194ca2d1e886fbab41b8f63c"
+    },
+    {
+      "bytes": 694,
+      "name": "SHA256SUMS.json",
+      "sha256": "693fa65336dfa7dc934c9a4f224160c79919301157c52ba31728c82cf4243b15"
+    },
+    {
+      "bytes": 2585,
+      "name": "canonicalizer/manifest.json",
+      "sha256": "707358cf4f27c63fb8e2456cff388f800446a20902de96f0969be852430b3fba"
+    },
+    {
+      "bytes": 3484608,
+      "name": "canonicalizer/weights.safetensors",
+      "sha256": "9ee5bada06ca8cf510960a3cd71222076b9e9ee1f30946cacb3a2178789cc6be"
+    },
+    {
+      "bytes": 22500,
+      "name": "components/manifest.json",
+      "sha256": "0d6532bd42632c1d655eeca4b5e4169df41daae316a9825928ec8cba1f7693a1"
+    },
+    {
+      "bytes": 57096812,
+      "name": "components/weights.safetensors",
+      "sha256": "56e21453076d8344db5dd59c46e1f1a3b7a7b704b0f9753d66ea60009b794097"
+    },
+    {
+      "bytes": 493,
+      "name": "slots/manifest.json",
+      "sha256": "39073081bae793dcdb83df1316746aab3256211d5b32fe4e37aaa9e64a721b40"
+    },
+    {
+      "bytes": 525408,
+      "name": "slots/weights.safetensors",
+      "sha256": "7916558fc135580f1d35a97a1d02f71a32d83907fe903a4c0bbff8215550eb05"
+    }
+  ],
+  "parameter_count": 15268045,
+  "published": false,
+  "tensor_count": 308,
+  "top_manifest_sha256": "d00f28e9f8f0591a6ee465670490f45a9de9ab15194ca2d1e886fbab41b8f63c",
+  "trust": "Obtain this commitment record independently of the downloaded bundle; hashes establish integrity, not quality or ownership.",
+  "weights_bytes": 61106828,
+  "weights_files": 3
+}

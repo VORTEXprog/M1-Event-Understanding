@@ -4,6 +4,11 @@ The package namespace is `m1`. The public boundary is supplied features/states
 and complete factor output. Research launchers, corpus loaders, historical
 checkpoint envelopes and application consumers are not runtime dependencies.
 
+For the first genuinely trained checkpoint candidate, see
+[M1 Experimental 1](EXPERIMENTAL_1.md). Its compatible donor, tokenization and
+feature construction are documented in the [Feature Provider audit](FEATURE_PROVIDER.md).
+The source-only examples remain explicitly invented fixtures.
+
 ## Text and feature geometry
 
 `RawText(sentence_id, text, language)` accepts a nonempty identifier, unchanged
@@ -43,6 +48,12 @@ five groups `type14`, `localizer`, `original66`, `heads`, `binding`. Use
 `binding_kind="native74"` for that architecture's complete state instead.
 `export_component_states(models)` creates detached copies for serialization.
 
+For the full-context83 architecture these groups contain 272 parameter tensors
+(14 + 13 + 66 + 96 + 83). The factory accepts exactly these five groups. An
+internal checkpoint envelope or a bundle with additional canonicalizer/slot
+groups must not be passed to it unchanged. A state-bundle load authenticates
+arrays; owner reconstruction separately validates the declared topology.
+
 The factory validates exact complete state keys, shapes, ordinary CPU FP32,
 finiteness and storage separation. It derives content commitments from supplied
 bytes, restores frozen modules and preserves global RNG state. Inference rejects
@@ -58,6 +69,13 @@ states and features.
 Canonicalization and slots are separate: `canonicalizer_from_state` and
 `slots_from_state` preserve their numerical owners. The default event-factor
 runtime does not run application-specific consumer encoding.
+
+The original `canonicalizer_from_state` restores the native 28-tensor owner with
+a 96-byte mention boundary. It is not a loader for the Experimental 1 routed
+32-tensor canonicalizer, whose frozen parent accepts 128 bytes. That candidate
+requires its explicit additive loader and a separate canonicalization step;
+see the [candidate loading instructions](EXPERIMENTAL_1.md). Neither tensor-count
+renaming nor dropping its four router tensors preserves the selected decoder.
 
 The optional [example configuration](../examples/inference.example.json)
 contains only supported factory options and a CPU thread setting. The core does
@@ -161,6 +179,11 @@ interrupted save may leave an incomplete directory which cannot load. It is not
 silently resumed or overwritten. Default caps are 512 MiB for an archive and
 1 MiB for its manifest. The codec does not establish compatibility with arbitrary
 external checkpoints or approve a feature basis.
+
+Release attachments must carry their archive and manifest commitments in an
+independently obtained release record. Only public composition/compatibility
+metadata belongs in a redistributable manifest: do not copy private research
+paths, corpus content or executable historical checkpoint envelopes into it.
 
 ## Explicit compatibility domain
 

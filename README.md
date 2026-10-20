@@ -1,17 +1,82 @@
-# M1 — Current-Turn Understanding
+# M1 — Modular Event Understanding
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Status: experimental](https://img.shields.io/badge/Status-experimental-orange.svg)
 
-M1 is a standalone Python research toolkit for extracting event structure from
-the current text input. It separates event localization, event type, argument
-binding, polarity and directed relations into explicit neural components.
+M1 is an experimental Python toolkit that turns text and compatible neural
+features into structured events: where each event occurs, its type, who or what
+participates, whether it is negated, and how events are ordered. Separate learned
+components make these decisions inspectable and replaceable. An optional learned
+canonicalizer maps participant mentions to symbols within a limited inventory.
 
-**This is an experimental source release, not a pretrained language-understanding
-product.** No trained weights, datasets or model downloads are included. The
-examples use invented features and states to demonstrate executable interfaces;
-their predictions have no semantic accuracy claim. Full M1 qualification and
-generalization remain open.
+**M1 is still experimental and supports a narrow set of event types.** Its current
+trained states do not meet all project quality criteria. It is not a completed
+M1 v1.5 release or a production-ready language-understanding system. See
+[Experimental Checkpoints](#experimental-checkpoints) for the first trained
+checkpoint candidate and its measured limitations.
+
+Trained weights and donor-model assets are separate from this source repository.
+The two existing feature examples use invented features and untrained states to
+demonstrate interfaces; their outputs are not evidence of semantic accuracy.
+
+## Input and output
+
+```text
+English or Russian text
+  + the checkpoint's compatible feature provider
+  + trained M1 state
+        ↓
+event spans and types
+  + participant spans and roles
+  + polarity and directed event relations
+  + optional canonical participant symbols
+```
+
+For example, the intended structure for `Ivan opened a door.` can be represented
+as follows. **This JSON is a handwritten illustration of the output interface,
+not a model prediction or a measured result.** Character ranges are half-open
+Python string offsets.
+
+```json
+{
+  "sentence_id": "illustration-1",
+  "events": [{
+    "event_index": 0,
+    "char_start": 5,
+    "char_end": 11,
+    "TYPE": "OPEN",
+    "polarity_id": 1,
+    "roles": [
+      {"role_index": 0, "char_start": 0, "char_end": 4, "surface": "Ivan"},
+      {"role_index": 7, "char_start": 14, "char_end": 18, "surface": "door"}
+    ]
+  }],
+  "relations": []
+}
+```
+
+Here role `0` is agent, role `7` is object and polarity `1` is affirmative. Real
+predictions may omit events, choose extra events or assign the wrong arguments;
+the [Experimental 1 record](docs/EXPERIMENTAL_1.md) reports the observed errors.
+The [API reference](docs/API.md) defines the complete output and numeric IDs.
+
+## Experimental Checkpoints
+
+**M1 Experimental 1** is a prepared research checkpoint candidate. It is not a
+new architecture version and does not claim completed M1 qualification. The
+candidate contains genuinely trained component states, with compatibility,
+integrity and numerical parity checked separately from semantic quality.
+
+No Experimental 1 weights or GitHub Release have been published yet. After
+explicit publication approval, the intended pre-release page is
+[`experimental-1`](https://github.com/XRedMzK/M1-Event-Understanding/releases/tag/experimental-1)
+(a reserved future link, not a current download). Binaries belong in release
+attachments and are excluded from ordinary Git history.
+
+See the [candidate composition, exact results and known errors](docs/EXPERIMENTAL_1.md)
+and the [Feature Provider audit](docs/FEATURE_PROVIDER.md) before attempting real
+inference. Compatible feature origins matter: an arbitrary encoder with the same
+output width cannot replace the provider used to train these weights.
 
 ## Purpose
 
@@ -86,8 +151,9 @@ describe topology, not model quality or parameter counts.
 - Interval work grows quadratically with the number of character units. Callers
   must set input/resource budgets appropriate to their application.
 
-See [dependency licenses](docs/DEPENDENCIES.md) and
-[validation scope](docs/VALIDATION.md).
+See [dependency licenses](docs/DEPENDENCIES.md),
+[validation scope](docs/VALIDATION.md) and the
+[Feature Provider requirements](docs/FEATURE_PROVIDER.md).
 
 ## Installation
 
@@ -165,18 +231,22 @@ is only established after the workflow runs.
 | BIND | Native74/full-context83, joint role context and beam-8 replay | Full-span and cross-event transfer qualification |
 | POL | Supplied conditioned polarity heads and existing decision rule | Qualification on predicted event spans |
 | REL | Directed relation inference in the composed path | Full integrated qualification |
+| CAN | Optional learned mention canonicalization | Limited inventory, context transfer and integrated qualification |
 
 English and Russian are accepted input-language identifiers; this is not a claim
 of proven bilingual coverage. The ontology is fixed and narrow. No calibrated
 confidence, open-domain coverage, unseen-construction guarantee, production SLA
 or completed M1 freeze is claimed.
 
-The optional compatibility domain is at most two events, 96 UTF-8 bytes per
+The original optional compatibility domain is at most two events, 96 UTF-8 bytes per
 mention and 4096 UTF-8 bytes per text. Domain failures are explicit; complete
 component results are retained rather than clipped. Existing application-specific
 consumer/vector formats and historical checkpoint envelopes are not included.
 Public state bundles and external features must be mutually compatible; renaming
 or supplying tensor shapes alone does not establish model compatibility.
+The Experimental 1 CAN component has a separately declared 128-byte mention
+boundary; it must not be restored as the original 96-byte owner. See
+[checkpoint compatibility](docs/EXPERIMENTAL_1.md).
 
 ## Roadmap
 
@@ -184,16 +254,17 @@ or supplying tensor shapes alone does not establish model compatibility.
 2. Publish a redistributable training recipe and appropriately licensed data.
 3. Improve localization and full-span/cross-event binding generalization.
 4. Qualify all factors together on fresh, independently defined evaluations.
-5. Consider trained weights and additional providers only after rights, resource
-   measurements and model-quality evidence are available.
+5. Release experimental trained checkpoints with explicit rights, compatibility,
+   resource measurements and quality limitations.
 
 ## Research challenges
 
 Interested in independently reviewing event localization, argument-role binding,
 or multi-event composition? See [Research Challenges](docs/RESEARCH_CHALLENGES.md)
 for current questions, code entry points, and links to open research issues.
-This is a source-only preview; its implementation tests do not establish model
-accuracy, and no trained checkpoints or independent benchmark are included.
+Implementation tests do not establish model accuracy. The checkpoint candidate's
+development results are reported separately and are not an independent public
+benchmark or a completed final qualification.
 
 ## Contributing and license
 

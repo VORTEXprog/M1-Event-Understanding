@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "date": "2026-10-20",
+  "fixture": false,
+  "Gold_inputs": 0,
+  "donor_updates": 0,
+  "rows": 2,
+  "languages": [
+    "en",
+    "ru"
+  ],
+  "banks": 16,
+  "bank_values_exact_to_reference": true,
+  "reference_kind": "original frozen C11 unprimed and semantic-prefix capture; identical B8 schedules",
+  "unit_counts": [
+    10,
+    7
+  ],
+  "load_and_authenticate_seconds": 6.218001961000027,
+  "capture_seconds": 2.3540861280000627,
+  "checkpoint_load_and_M1_CAN_inference_seconds": 1.921822493999798,
+  "elapsed_seconds": 10.884586976000037,
+  "peak_RSS_bytes": 4838285312,
+  "gpu": {
+    "owned_peak_allocated_bytes": 3888609792,
+    "owned_peak_reserved_bytes": 3923771392,
+    "samples": 52,
+    "total_device_peak_bytes": 5704646656,
+    "time_weighted_utilization_percent": 3.8517697088616134,
+    "peak_utilization_percent": 41
+  },
+  "code_sha256": "1e6e5f092e0055a3f2d0d66fa3f8f4f205e0d22b8f8d07228ceac421b754eff9",
+  "checkpoint_manifest_sha256": "d00f28e9f8f0591a6ee465670490f45a9de9ab15194ca2d1e886fbab41b8f63c",
+  "semantic_accuracy_claimed": false,
+  "qualification_claimed": false,
+  "inputs": [
+    {
+      "sentence_id": "smoke/en",
+      "text": "Anna opened the blue cabinet with a small key.",
+      "language": "en"
+    },
+    {
+      "sentence_id": "smoke/ru",
+      "text": "Мария закрыла зелёный шкаф после разговора.",
+      "language": "ru"
+    }
+  ],
+  "predictions": [
+    {
+      "sentence_id": "smoke/en",
+      "events": [
+        {
+          "event_index": 0,
+          "char_start": 5,
+          "char_end": 11,
+          "TYPE": "OPEN",
+          "polarity_id": 1,
+          "roles": [
+            {
+              "role_index": 0,
+              "char_start": 0,
+              "char_end": 4,
+              "surface": "Anna",
+              "canonical_id": "entity/anna",
+              "canonical_status": "DECODED",
+              "canonical_inventory27": false,
+              "canonical_route": "FULL"
+            },
+            {
+              "role_index": 7,
+              "char_start": 16,
+              "char_end": 28,
+              "surface": "blue cabinet",
+              "canonical_id": "object/blue_cabinet_",
+              "canonical_status": "DECODED",
+              "canonical_inventory27": false,
+              "canonical_route": "FULL"
+            }
+          ]
+        }
+      ],
+      "relations": [],
+      "legacy_dense_capacity_exceeded": false
+    },
+    {
+      "sentence_id": "smoke/ru",
+      "events": [
+        {
+          "event_index": 0,
+          "char_start": 6,
+          "char_end": 13,
+          "TYPE": "CLOSE",
+          "polarity_id": 1,
+          "roles": [
+            {
+              "role_index": 0,
+              "char_start": 0,
+              "char_end": 5,
+              "surface": "Мария",
+              "canonical_id": "entity/marin",
+              "canonical_status": "DECODED",
+              "canonical_inventory27": false,
+              "canonical_route": "FULL"
+            },
+            {
+              "role_index": 7,
+              "char_start": 14,
+              "char_end": 26,
+              "surface": "зелёный шкаф",
+              "canonical_id": "object/locker_shkaf",
+              "canonical_status": "DECODED",
+              "canonical_inventory27": false,
+              "canonical_route": "ONE_LEFT_BLANK"
+            }
+          ]
+        }
+      ],
+      "relations": [],
+      "legacy_dense_capacity_exceeded": false
+    }
+  ],
+  "GPU_model": "NVIDIA GeForce RTX 5090",
+  "validation_interpreter": "Python 3.12",
+  "provider_test_suite": "5 invented CPU tests passed; real donor smoke separate"
+}

@@ -1,0 +1,963 @@
+{
+  "canonicalizer": {
+    "basis_sha256": "1e968cf698229e55ba635218b707ff4ea6bcc29acfc6ef13074bd93fc2a0bfd6",
+    "frozen_ancestor28_sha256": "cd65177ade4e70572a9543da7910a220769f49e94359f288d330f05e44c132f9",
+    "optimizer_updates": 6784,
+    "state_sha256": "9faa446305daf23623544a5305987faf2c4a09420f65c7e90beb7035fa9a66fe"
+  },
+  "canonicalizer_gold_span_control": {
+    "ALL": {
+      "DECODED": 1720,
+      "correct": 1720,
+      "rows": 1720,
+      "wrong": 0
+    },
+    "language/en": {
+      "DECODED": 860,
+      "correct": 860,
+      "rows": 860,
+      "wrong": 0
+    },
+    "language/ru": {
+      "DECODED": 860,
+      "correct": 860,
+      "rows": 860,
+      "wrong": 0
+    }
+  },
+  "checkpoint": "M1 Experimental 1",
+  "component_states": {
+    "binding": {
+      "native_state_sha256": "9ec2777dc50bb3e56ee05aeae07f98642059d6a3700712972e99a754cf322a88",
+      "owned_generic_state_sha256": "9ec2777dc50bb3e56ee05aeae07f98642059d6a3700712972e99a754cf322a88",
+      "parameter_tensors": 83
+    },
+    "heads": {
+      "native_state_sha256": "5b44d7a9876a31f707019551cca4fb97c177d116b8a38bef39be1fa0a75a8162",
+      "owned_generic_state_sha256": "e75166dbab5d30c7119911635390b68563b9b78e541c9928364e47bae4bcdaea",
+      "parameter_tensors": 96
+    },
+    "localizer": {
+      "native_state_sha256": "3c00c40a2eb8a25eb094f5eb25fd7cb56ff9ed8acea6c2b969256110b7c3e62f",
+      "owned_generic_state_sha256": "85f42ebf9b2ea50df8a7b86690c88fd86b2dbd573b84e0f1687250ad9245e53a",
+      "parameter_tensors": 13
+    },
+    "original66": {
+      "native_state_sha256": "a7ed23842577bfd25d11c0008a0a9e527d21bfbccfbc4c86779650136b9a0b48",
+      "owned_generic_state_sha256": "763d3b6bd2151ef7853492bd630ac26566555e6af91b45befd973b5e8fd53514",
+      "parameter_tensors": 66
+    },
+    "slots": {
+      "native_state_sha256": "4562b0eff48e9b49ffdefb5fe51a2f5c49e5e8232cc1f2343d1307ad57487092",
+      "owned_generic_state_sha256": "4562b0eff48e9b49ffdefb5fe51a2f5c49e5e8232cc1f2343d1307ad57487092",
+      "parameter_tensors": 4
+    },
+    "type14": {
+      "native_state_sha256": "cda5a4d8163913329ddf99540652616b0b86929fc4d89f028be3b321cc1315a8",
+      "owned_generic_state_sha256": "64b6756363ed7a6e53c96d010ed9734363a4f7e85436904d0f75fc1ca6eaaad7",
+      "parameter_tensors": 14
+    }
+  },
+  "corpus": {
+    "consistent_repeated_rows": 12,
+    "distinct_normalized_texts": 356,
+    "finite_identity_inventory": 27,
+    "gold_event_count_rows": {
+      "0": 22,
+      "1": 106,
+      "2": 122,
+      "3": 118
+    },
+    "gold_events": 704,
+    "gold_positive_roles": 1720,
+    "not_a_public_benchmark": true,
+    "rows": 368,
+    "rows_per_language": {
+      "en": 184,
+      "ru": 184
+    }
+  },
+  "definitions": {
+    "BIND": "Exact (typed event, role, learned canonical identity) sets; includes missed/extra events and roles. Full mention-boundary accuracy is separate.",
+    "CAN_control": "1720 Gold full argument mentions, not predicted spans; no role/event extraction claim.",
+    "LOC": "Exact character-span event sets, irrespective of type; counts are TP/FN/FP. Exact rows include all368.",
+    "POL": "704 Gold events plus117 unmatched typed predicted events =821; missing Gold events and extras count incorrect. NONE/AFFIRMATIVE/NEGATIVE class denominators746/14/61.",
+    "REL": "Exact typed event set and complete directed relation set on all368rows, including E0 and missing/extra events.",
+    "TYPE": "Correct type on exact identifiable predicted HEADs; 86 unidentifiable predicted spans remain separate. Not whole-input accuracy.",
+    "external_consumer": "Frozen application-specific research consumer, not distributed and not part of public API; empty endpoints count incorrect in strict metrics."
+  },
+  "evidence_class": "adaptive development; no independent final qualification",
+  "evidence_date": "2026-10-18",
+  "external_research_consumer": {
+    "all_pairs_retained": true,
+    "by_language_condition": {
+      "cross": {
+        "by_task": {
+          "content": {
+            "accuracy": 0.25,
+            "correct": 10,
+            "count": 40,
+            "empty_endpoint_pair_count": 20
+          },
+          "negation": {
+            "accuracy": 0.3333333333333333,
+            "correct": 4,
+            "count": 12,
+            "empty_endpoint_pair_count": 4
+          },
+          "order": {
+            "accuracy": 0.25,
+            "correct": 3,
+            "count": 12,
+            "empty_endpoint_pair_count": 6
+          },
+          "possession": {
+            "accuracy": 0.75,
+            "correct": 9,
+            "count": 12,
+            "empty_endpoint_pair_count": 0
+          },
+          "relation": {
+            "accuracy": 0.3333333333333333,
+            "correct": 4,
+            "count": 12,
+            "empty_endpoint_pair_count": 4
+          },
+          "role": {
+            "accuracy": 0.3888888888888889,
+            "correct": 14,
+            "count": 36,
+            "empty_endpoint_pair_count": 10
+          }
+        }
+      },
+      "en": {
+        "by_task": {
+          "content": {
+            "accuracy": 0.7368421052631579,
+            "correct": 28,
+            "count": 38,
+            "empty_endpoint_pair_count": 4
+          },
+          "negation": {
+            "accuracy": 0.5,
+            "correct": 6,
+            "count": 12,
+            "empty_endpoint_pair_count": 0
+          },
+          "order": {
+            "accuracy": 0.5,
+            "correct": 6,
+            "count": 12,
+            "empty_endpoint_pair_count": 0
+          },
+          "possession": {
+            "accuracy": 0.6666666666666666,
+            "correct": 8,
+            "count": 12,
+            "empty_endpoint_pair_count": 0
+          },
+          "relation": {
+            "accuracy": 0.8333333333333334,
+            "correct": 10,
+            "count": 12,
+            "empty_endpoint_pair_count": 0
+          },
+          "role": {
+            "accuracy": 0.6944444444444444,
+            "correct": 25,
+            "count": 36,
+            "empty_endpoint_pair_count": 0
+          }
+        }
+      },
+      "ru": {
+        "by_task": {
+          "content": {
+            "accuracy": 0.23684210526315788,
+            "correct": 9,
+            "count": 38,
+            "empty_endpoint_pair_count": 20
+          },
+          "negation": {
+            "accuracy": 0.3333333333333333,
+            "correct": 4,
+            "count": 12,
+            "empty_endpoint_pair_count": 4
+          },
+          "order": {
+            "accuracy": 0.08333333333333333,
+            "correct": 1,
+            "count": 12,
+            "empty_endpoint_pair_count": 9
+          },
+          "possession": {
+            "accuracy": 0.16666666666666666,
+            "correct": 2,
+            "count": 12,
+            "empty_endpoint_pair_count": 8
+          },
+          "relation": {
+            "accuracy": 0.16666666666666666,
+            "correct": 2,
+            "count": 12,
+            "empty_endpoint_pair_count": 8
+          },
+          "role": {
+            "accuracy": 0.25,
+            "correct": 9,
+            "count": 36,
+            "empty_endpoint_pair_count": 18
+          }
+        }
+      }
+    },
+    "by_language_task_family": {
+      "cross": {
+        "content::content_invariance": {
+          "accuracy": 0.3333333333333333,
+          "correct": 4,
+          "count": 12,
+          "empty_endpoint_pair_count": 4
+        },
+        "content::empty_asserted_event_set": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "count": 4,
+          "empty_endpoint_pair_count": 4
+        },
+        "content::lexical_trap_high_overlap": {
+          "accuracy": 0.3333333333333333,
+          "correct": 4,
+          "count": 12,
+          "empty_endpoint_pair_count": 4
+        },
+        "content::lexical_trap_low_overlap": {
+          "accuracy": 0.16666666666666666,
+          "correct": 2,
+          "count": 12,
+          "empty_endpoint_pair_count": 8
+        },
+        "negation::negation": {
+          "accuracy": 0.3333333333333333,
+          "correct": 4,
+          "count": 12,
+          "empty_endpoint_pair_count": 4
+        },
+        "order::local_event_order": {
+          "accuracy": 0.25,
+          "correct": 3,
+          "count": 12,
+          "empty_endpoint_pair_count": 6
+        },
+        "possession::possession": {
+          "accuracy": 0.75,
+          "correct": 9,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "relation::relation_identity": {
+          "accuracy": 0.3333333333333333,
+          "correct": 4,
+          "count": 12,
+          "empty_endpoint_pair_count": 4
+        },
+        "role::entity_swap": {
+          "accuracy": 0.25,
+          "correct": 3,
+          "count": 12,
+          "empty_endpoint_pair_count": 6
+        },
+        "role::relation_composition": {
+          "accuracy": 0.5833333333333334,
+          "correct": 7,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "role::role_reversal": {
+          "accuracy": 0.3333333333333333,
+          "correct": 4,
+          "count": 12,
+          "empty_endpoint_pair_count": 4
+        }
+      },
+      "en": {
+        "content::content_invariance": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "count": 12,
+          "empty_endpoint_pair_count": 2
+        },
+        "content::empty_asserted_event_set": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "count": 2,
+          "empty_endpoint_pair_count": 2
+        },
+        "content::lexical_trap_high_overlap": {
+          "accuracy": 0.8333333333333334,
+          "correct": 10,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "content::lexical_trap_low_overlap": {
+          "accuracy": 0.8333333333333334,
+          "correct": 10,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "negation::negation": {
+          "accuracy": 0.5,
+          "correct": 6,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "order::local_event_order": {
+          "accuracy": 0.5,
+          "correct": 6,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "possession::possession": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "relation::relation_identity": {
+          "accuracy": 0.8333333333333334,
+          "correct": 10,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "role::entity_swap": {
+          "accuracy": 0.6666666666666666,
+          "correct": 8,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "role::relation_composition": {
+          "accuracy": 0.5833333333333334,
+          "correct": 7,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "role::role_reversal": {
+          "accuracy": 0.8333333333333334,
+          "correct": 10,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        }
+      },
+      "ru": {
+        "content::content_invariance": {
+          "accuracy": 0.3333333333333333,
+          "correct": 4,
+          "count": 12,
+          "empty_endpoint_pair_count": 4
+        },
+        "content::empty_asserted_event_set": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "count": 2,
+          "empty_endpoint_pair_count": 2
+        },
+        "content::lexical_trap_high_overlap": {
+          "accuracy": 0.25,
+          "correct": 3,
+          "count": 12,
+          "empty_endpoint_pair_count": 6
+        },
+        "content::lexical_trap_low_overlap": {
+          "accuracy": 0.16666666666666666,
+          "correct": 2,
+          "count": 12,
+          "empty_endpoint_pair_count": 8
+        },
+        "negation::negation": {
+          "accuracy": 0.3333333333333333,
+          "correct": 4,
+          "count": 12,
+          "empty_endpoint_pair_count": 4
+        },
+        "order::local_event_order": {
+          "accuracy": 0.08333333333333333,
+          "correct": 1,
+          "count": 12,
+          "empty_endpoint_pair_count": 9
+        },
+        "possession::possession": {
+          "accuracy": 0.16666666666666666,
+          "correct": 2,
+          "count": 12,
+          "empty_endpoint_pair_count": 8
+        },
+        "relation::relation_identity": {
+          "accuracy": 0.16666666666666666,
+          "correct": 2,
+          "count": 12,
+          "empty_endpoint_pair_count": 8
+        },
+        "role::entity_swap": {
+          "accuracy": 0.08333333333333333,
+          "correct": 1,
+          "count": 12,
+          "empty_endpoint_pair_count": 10
+        },
+        "role::relation_composition": {
+          "accuracy": 0.5,
+          "correct": 6,
+          "count": 12,
+          "empty_endpoint_pair_count": 0
+        },
+        "role::role_reversal": {
+          "accuracy": 0.16666666666666666,
+          "correct": 2,
+          "count": 12,
+          "empty_endpoint_pair_count": 8
+        }
+      }
+    },
+    "by_task": {
+      "content": {
+        "accuracy": 0.4051724137931034,
+        "correct": 47,
+        "count": 116,
+        "empty_endpoint_pair_count": 44
+      },
+      "negation": {
+        "accuracy": 0.3888888888888889,
+        "correct": 14,
+        "count": 36,
+        "empty_endpoint_pair_count": 8
+      },
+      "order": {
+        "accuracy": 0.2777777777777778,
+        "correct": 10,
+        "count": 36,
+        "empty_endpoint_pair_count": 15
+      },
+      "possession": {
+        "accuracy": 0.5277777777777778,
+        "correct": 19,
+        "count": 36,
+        "empty_endpoint_pair_count": 8
+      },
+      "relation": {
+        "accuracy": 0.4444444444444444,
+        "correct": 16,
+        "count": 36,
+        "empty_endpoint_pair_count": 12
+      },
+      "role": {
+        "accuracy": 0.4444444444444444,
+        "correct": 48,
+        "count": 108,
+        "empty_endpoint_pair_count": 28
+      }
+    },
+    "by_task_family": {
+      "content::content_invariance": {
+        "accuracy": 0.4444444444444444,
+        "correct": 16,
+        "count": 36,
+        "empty_endpoint_pair_count": 10
+      },
+      "content::empty_asserted_event_set": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "count": 8,
+        "empty_endpoint_pair_count": 8
+      },
+      "content::lexical_trap_high_overlap": {
+        "accuracy": 0.4722222222222222,
+        "correct": 17,
+        "count": 36,
+        "empty_endpoint_pair_count": 10
+      },
+      "content::lexical_trap_low_overlap": {
+        "accuracy": 0.3888888888888889,
+        "correct": 14,
+        "count": 36,
+        "empty_endpoint_pair_count": 16
+      },
+      "negation::negation": {
+        "accuracy": 0.3888888888888889,
+        "correct": 14,
+        "count": 36,
+        "empty_endpoint_pair_count": 8
+      },
+      "order::local_event_order": {
+        "accuracy": 0.2777777777777778,
+        "correct": 10,
+        "count": 36,
+        "empty_endpoint_pair_count": 15
+      },
+      "possession::possession": {
+        "accuracy": 0.5277777777777778,
+        "correct": 19,
+        "count": 36,
+        "empty_endpoint_pair_count": 8
+      },
+      "relation::relation_identity": {
+        "accuracy": 0.4444444444444444,
+        "correct": 16,
+        "count": 36,
+        "empty_endpoint_pair_count": 12
+      },
+      "role::entity_swap": {
+        "accuracy": 0.3333333333333333,
+        "correct": 12,
+        "count": 36,
+        "empty_endpoint_pair_count": 16
+      },
+      "role::relation_composition": {
+        "accuracy": 0.5555555555555556,
+        "correct": 20,
+        "count": 36,
+        "empty_endpoint_pair_count": 0
+      },
+      "role::role_reversal": {
+        "accuracy": 0.4444444444444444,
+        "correct": 16,
+        "count": 36,
+        "empty_endpoint_pair_count": 12
+      }
+    },
+    "canonical_family_coverage": {
+      "missing": [],
+      "other_original_family_labels": [
+        "content::empty_asserted_event_set"
+      ],
+      "present": [
+        "content::content_invariance",
+        "content::lexical_trap_high_overlap",
+        "content::lexical_trap_low_overlap",
+        "negation::negation",
+        "order::local_event_order",
+        "possession::possession",
+        "relation::relation_identity",
+        "role::entity_swap",
+        "role::relation_composition",
+        "role::role_reversal"
+      ]
+    },
+    "empty_endpoints_count_as_incorrect": true,
+    "macro_accuracy": 0.41475095785440613,
+    "ordinary_accuracy_empty_endpoints_not_forced_incorrect": {
+      "accuracy": 0.5597826086956522,
+      "correct": 206,
+      "count": 368,
+      "empty_endpoint_pair_count": 115
+    },
+    "overall": {
+      "accuracy": 0.41847826086956524,
+      "correct": 154,
+      "count": 368,
+      "empty_endpoint_pair_count": 115
+    },
+    "structural_accuracy": 0.4166666666666667
+  },
+  "final_qualification_passed": false,
+  "metrics": {
+    "ALL": {
+      "BIND_F1": 0.5154569892473119,
+      "BIND_exact": 83,
+      "BIND_exact_accuracy": 0.22554347826086957,
+      "BIND_fn": 953,
+      "BIND_fp": 489,
+      "BIND_tp": 767,
+      "Gold_NULL_role_slots": 3912,
+      "Gold_events": 704,
+      "Gold_positive_role_slots": 1720,
+      "LOC_F1": 0.6968973747016707,
+      "LOC_exact": 140,
+      "LOC_exact_accuracy": 0.3804347826086957,
+      "LOC_fn": 266,
+      "LOC_fp": 115,
+      "LOC_tp": 438,
+      "POL_0": {
+        "accuracy": 0.5227882037533512,
+        "correct": 390,
+        "denominator": 746
+      },
+      "POL_1": {
+        "accuracy": 0.7142857142857143,
+        "correct": 10,
+        "denominator": 14
+      },
+      "POL_2": {
+        "accuracy": 0.36065573770491804,
+        "correct": 22,
+        "denominator": 61
+      },
+      "POL_ALL": {
+        "accuracy": 0.5140073081607796,
+        "correct": 422,
+        "denominator": 821
+      },
+      "REL_exact": 127,
+      "REL_exact_accuracy": 0.3451086956521739,
+      "TYPE_conditional_accuracy": 0.9957173447537473,
+      "TYPE_correct": 465,
+      "TYPE_identifiable_predicted_HEADs": 467,
+      "TYPE_unidentifiable_predicted_HEADs": 86,
+      "canonical_role_failures": 58,
+      "domain_failure": 12,
+      "event_count_correct": 182,
+      "event_count_correct_accuracy": 0.4945652173913043,
+      "native_NULL_correct": 2465,
+      "native_full_span_positive_correct": 424,
+      "predicted_events": 553,
+      "rows": 368,
+      "typed_extra_events": 117,
+      "typed_matched_events": 436,
+      "typed_missing_events": 268
+    },
+    "Gold_E0": {
+      "BIND_F1": 1.0,
+      "BIND_exact": 22,
+      "BIND_exact_accuracy": 1.0,
+      "BIND_fn": 0,
+      "BIND_fp": 0,
+      "BIND_tp": 0,
+      "Gold_NULL_role_slots": 0,
+      "Gold_events": 0,
+      "Gold_positive_role_slots": 0,
+      "LOC_F1": 1.0,
+      "LOC_exact": 22,
+      "LOC_exact_accuracy": 1.0,
+      "LOC_fn": 0,
+      "LOC_fp": 0,
+      "LOC_tp": 0,
+      "POL_0": {
+        "accuracy": null,
+        "correct": 0,
+        "denominator": 0
+      },
+      "POL_1": {
+        "accuracy": null,
+        "correct": 0,
+        "denominator": 0
+      },
+      "POL_2": {
+        "accuracy": null,
+        "correct": 0,
+        "denominator": 0
+      },
+      "POL_ALL": {
+        "accuracy": null,
+        "correct": 0,
+        "denominator": 0
+      },
+      "REL_exact": 22,
+      "REL_exact_accuracy": 1.0,
+      "TYPE_conditional_accuracy": null,
+      "TYPE_correct": 0,
+      "TYPE_identifiable_predicted_HEADs": 0,
+      "TYPE_unidentifiable_predicted_HEADs": 0,
+      "canonical_role_failures": 0,
+      "domain_failure": 0,
+      "event_count_correct": 22,
+      "event_count_correct_accuracy": 1.0,
+      "native_NULL_correct": 0,
+      "native_full_span_positive_correct": 0,
+      "predicted_events": 0,
+      "rows": 22,
+      "typed_extra_events": 0,
+      "typed_matched_events": 0,
+      "typed_missing_events": 0
+    },
+    "Gold_E1": {
+      "BIND_F1": 0.5871559633027523,
+      "BIND_exact": 48,
+      "BIND_exact_accuracy": 0.4528301886792453,
+      "BIND_fn": 130,
+      "BIND_fp": 50,
+      "BIND_tp": 128,
+      "Gold_NULL_role_slots": 590,
+      "Gold_events": 106,
+      "Gold_positive_role_slots": 258,
+      "LOC_F1": 0.6408839779005525,
+      "LOC_exact": 51,
+      "LOC_exact_accuracy": 0.4811320754716981,
+      "LOC_fn": 48,
+      "LOC_fp": 17,
+      "LOC_tp": 58,
+      "POL_0": {
+        "accuracy": 0.4854368932038835,
+        "correct": 50,
+        "denominator": 103
+      },
+      "POL_1": {
+        "accuracy": 0.8,
+        "correct": 4,
+        "denominator": 5
+      },
+      "POL_2": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "denominator": 15
+      },
+      "POL_ALL": {
+        "accuracy": 0.43902439024390244,
+        "correct": 54,
+        "denominator": 123
+      },
+      "REL_exact": 51,
+      "REL_exact_accuracy": 0.4811320754716981,
+      "TYPE_conditional_accuracy": 1.0,
+      "TYPE_correct": 66,
+      "TYPE_identifiable_predicted_HEADs": 66,
+      "TYPE_unidentifiable_predicted_HEADs": 9,
+      "canonical_role_failures": 2,
+      "domain_failure": 1,
+      "event_count_correct": 61,
+      "event_count_correct_accuracy": 0.5754716981132075,
+      "native_NULL_correct": 331,
+      "native_full_span_positive_correct": 97,
+      "predicted_events": 75,
+      "rows": 106,
+      "typed_extra_events": 17,
+      "typed_matched_events": 58,
+      "typed_missing_events": 48
+    },
+    "Gold_E2": {
+      "BIND_F1": 0.5163636363636364,
+      "BIND_exact": 10,
+      "BIND_exact_accuracy": 0.08196721311475409,
+      "BIND_fn": 328,
+      "BIND_fp": 204,
+      "BIND_tp": 284,
+      "Gold_NULL_role_slots": 1340,
+      "Gold_events": 244,
+      "Gold_positive_role_slots": 612,
+      "LOC_F1": 0.6651884700665188,
+      "LOC_exact": 31,
+      "LOC_exact_accuracy": 0.2540983606557377,
+      "LOC_fn": 94,
+      "LOC_fp": 57,
+      "LOC_tp": 150,
+      "POL_0": {
+        "accuracy": 0.46441947565543074,
+        "correct": 124,
+        "denominator": 267
+      },
+      "POL_1": {
+        "accuracy": 0.6,
+        "correct": 3,
+        "denominator": 5
+      },
+      "POL_2": {
+        "accuracy": 0.4838709677419355,
+        "correct": 15,
+        "denominator": 31
+      },
+      "POL_ALL": {
+        "accuracy": 0.46864686468646866,
+        "correct": 142,
+        "denominator": 303
+      },
+      "REL_exact": 26,
+      "REL_exact_accuracy": 0.21311475409836064,
+      "TYPE_conditional_accuracy": 0.9883040935672515,
+      "TYPE_correct": 169,
+      "TYPE_identifiable_predicted_HEADs": 171,
+      "TYPE_unidentifiable_predicted_HEADs": 36,
+      "canonical_role_failures": 19,
+      "domain_failure": 3,
+      "event_count_correct": 50,
+      "event_count_correct_accuracy": 0.4098360655737705,
+      "native_NULL_correct": 831,
+      "native_full_span_positive_correct": 159,
+      "predicted_events": 207,
+      "rows": 122,
+      "typed_extra_events": 59,
+      "typed_matched_events": 148,
+      "typed_missing_events": 96
+    },
+    "Gold_E3": {
+      "BIND_F1": 0.4930555555555556,
+      "BIND_exact": 3,
+      "BIND_exact_accuracy": 0.025423728813559324,
+      "BIND_fn": 495,
+      "BIND_fp": 235,
+      "BIND_tp": 355,
+      "Gold_NULL_role_slots": 1982,
+      "Gold_events": 354,
+      "Gold_positive_role_slots": 850,
+      "LOC_F1": 0.736,
+      "LOC_exact": 36,
+      "LOC_exact_accuracy": 0.3050847457627119,
+      "LOC_fn": 124,
+      "LOC_fp": 41,
+      "LOC_tp": 230,
+      "POL_0": {
+        "accuracy": 0.574468085106383,
+        "correct": 216,
+        "denominator": 376
+      },
+      "POL_1": {
+        "accuracy": 0.75,
+        "correct": 3,
+        "denominator": 4
+      },
+      "POL_2": {
+        "accuracy": 0.4666666666666667,
+        "correct": 7,
+        "denominator": 15
+      },
+      "POL_ALL": {
+        "accuracy": 0.5721518987341773,
+        "correct": 226,
+        "denominator": 395
+      },
+      "REL_exact": 28,
+      "REL_exact_accuracy": 0.23728813559322035,
+      "TYPE_conditional_accuracy": 1.0,
+      "TYPE_correct": 230,
+      "TYPE_identifiable_predicted_HEADs": 230,
+      "TYPE_unidentifiable_predicted_HEADs": 41,
+      "canonical_role_failures": 37,
+      "domain_failure": 8,
+      "event_count_correct": 49,
+      "event_count_correct_accuracy": 0.4152542372881356,
+      "native_NULL_correct": 1303,
+      "native_full_span_positive_correct": 168,
+      "predicted_events": 271,
+      "rows": 118,
+      "typed_extra_events": 41,
+      "typed_matched_events": 230,
+      "typed_missing_events": 124
+    },
+    "en": {
+      "BIND_F1": 0.5596967782691092,
+      "BIND_exact": 51,
+      "BIND_exact_accuracy": 0.27717391304347827,
+      "BIND_fn": 417,
+      "BIND_fp": 280,
+      "BIND_tp": 443,
+      "Gold_NULL_role_slots": 1956,
+      "Gold_events": 352,
+      "Gold_positive_role_slots": 860,
+      "LOC_F1": 0.7220543806646526,
+      "LOC_exact": 87,
+      "LOC_exact_accuracy": 0.47282608695652173,
+      "LOC_fn": 113,
+      "LOC_fp": 71,
+      "LOC_tp": 239,
+      "POL_0": {
+        "accuracy": 0.5463917525773195,
+        "correct": 212,
+        "denominator": 388
+      },
+      "POL_1": {
+        "accuracy": 1.0,
+        "correct": 6,
+        "denominator": 6
+      },
+      "POL_2": {
+        "accuracy": 0.41935483870967744,
+        "correct": 13,
+        "denominator": 31
+      },
+      "POL_ALL": {
+        "accuracy": 0.5435294117647059,
+        "correct": 231,
+        "denominator": 425
+      },
+      "REL_exact": 78,
+      "REL_exact_accuracy": 0.42391304347826086,
+      "TYPE_conditional_accuracy": 0.9919678714859438,
+      "TYPE_correct": 247,
+      "TYPE_identifiable_predicted_HEADs": 249,
+      "TYPE_unidentifiable_predicted_HEADs": 61,
+      "canonical_role_failures": 0,
+      "domain_failure": 0,
+      "event_count_correct": 124,
+      "event_count_correct_accuracy": 0.6739130434782609,
+      "native_NULL_correct": 1339,
+      "native_full_span_positive_correct": 242,
+      "predicted_events": 310,
+      "rows": 184,
+      "typed_extra_events": 73,
+      "typed_matched_events": 237,
+      "typed_missing_events": 115
+    },
+    "ru": {
+      "BIND_F1": 0.46518305814788224,
+      "BIND_exact": 32,
+      "BIND_exact_accuracy": 0.17391304347826086,
+      "BIND_fn": 536,
+      "BIND_fp": 209,
+      "BIND_tp": 324,
+      "Gold_NULL_role_slots": 1956,
+      "Gold_events": 352,
+      "Gold_positive_role_slots": 860,
+      "LOC_F1": 0.66890756302521,
+      "LOC_exact": 53,
+      "LOC_exact_accuracy": 0.28804347826086957,
+      "LOC_fn": 153,
+      "LOC_fp": 44,
+      "LOC_tp": 199,
+      "POL_0": {
+        "accuracy": 0.4972067039106145,
+        "correct": 178,
+        "denominator": 358
+      },
+      "POL_1": {
+        "accuracy": 0.5,
+        "correct": 4,
+        "denominator": 8
+      },
+      "POL_2": {
+        "accuracy": 0.3,
+        "correct": 9,
+        "denominator": 30
+      },
+      "POL_ALL": {
+        "accuracy": 0.4823232323232323,
+        "correct": 191,
+        "denominator": 396
+      },
+      "REL_exact": 49,
+      "REL_exact_accuracy": 0.266304347826087,
+      "TYPE_conditional_accuracy": 1.0,
+      "TYPE_correct": 218,
+      "TYPE_identifiable_predicted_HEADs": 218,
+      "TYPE_unidentifiable_predicted_HEADs": 25,
+      "canonical_role_failures": 58,
+      "domain_failure": 12,
+      "event_count_correct": 58,
+      "event_count_correct_accuracy": 0.31521739130434784,
+      "native_NULL_correct": 1126,
+      "native_full_span_positive_correct": 182,
+      "predicted_events": 243,
+      "rows": 184,
+      "typed_extra_events": 44,
+      "typed_matched_events": 199,
+      "typed_missing_events": 153
+    }
+  },
+  "release_gates_changed": false,
+  "selection": "tupleA272_plus_separate_CAN32_fixed16_and_optional_slots4",
+  "source_evidence_SHA256": [
+    {
+      "role": "assembled_checkpoint",
+      "sha256": "d14fe31dbab23b1aca2b64f3d8c524db68fda166843fc7215dc0b428502b5587"
+    },
+    {
+      "role": "baseline_raw368",
+      "sha256": "2c0bead7cf96bbed5664d11e34d3e57e56bc3bb860a3f48b1a3a486c7ab48ddd"
+    },
+    {
+      "role": "CAN32_actual_replacement",
+      "sha256": "80871171128de8125d875d86decb5121f45577119b269294298fddcd5dc53a2c"
+    },
+    {
+      "role": "CAN32_component_readout",
+      "sha256": "a19de74af08346ff2ee9dc9d4bbe106c1da21e2b997d59e08ee893af5aae1414"
+    }
+  ],
+  "status": "unpublished pre-release candidate"
+}

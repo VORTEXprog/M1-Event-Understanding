@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "date": "2026-10-20",
+  "real_checkpoint": true,
+  "real_donor": true,
+  "Gold_inputs": 0,
+  "private_research_modules_imported": false,
+  "elapsed_seconds": 10.175425813999937,
+  "peak_RSS_bytes": 4908507136,
+  "qualification_claimed": false,
+  "actual_output": {
+    "checkpoint": "M1 Experimental 1",
+    "experimental": true,
+    "qualification_claimed": false,
+    "features": {
+      "provider": "QWEN35_C11_v1",
+      "repository": "Qwen/Qwen3.5-2B-Base",
+      "revision": "b1485b2fa6dfa1287294f269f5fb618e03d52d7c",
+      "weight_sha256": "928acbf11878c32185bbd863514d191769285065ab9ea14fbfe431303f5fdf2d",
+      "tokenizer_sha256": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927",
+      "prefix_basis_sha256": "e351c258c07e90a0c003d0da22337acc9d1a476ee414ec4329509c99e35df232",
+      "layer_zero_based": 11,
+      "normalization": "NONE",
+      "Gold_inputs": 0,
+      "donor_updates": 0
+    },
+    "factors": [
+      {
+        "sentence_id": "input-1",
+        "events": [
+          {
+            "event_index": 0,
+            "char_start": 6,
+            "char_end": 13,
+            "TYPE": "CLOSE",
+            "polarity_id": 1,
+            "roles": [
+              {
+                "role_index": 0,
+                "char_start": 0,
+                "char_end": 5,
+                "surface": "Мария",
+                "canonical_id": "entity/marin",
+                "canonical_status": "DECODED",
+                "canonical_inventory27": false,
+                "canonical_route": "FULL"
+              },
+              {
+                "role_index": 7,
+                "char_start": 14,
+                "char_end": 26,
+                "surface": "зелёный шкаф",
+                "canonical_id": "object/locker_shkaf",
+                "canonical_status": "DECODED",
+                "canonical_inventory27": false,
+                "canonical_route": "ONE_LEFT_BLANK"
+              }
+            ]
+          }
+        ],
+        "relations": [],
+        "legacy_dense_capacity_exceeded": false
+      }
+    ]
+  },
+  "GPU": {
+    "samples": 48,
+    "peak_total_device_bytes": 5693440000,
+    "peak_utilization_percent": 5
+  }
+}

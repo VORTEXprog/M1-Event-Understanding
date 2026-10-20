@@ -1,6 +1,6 @@
 # Dependencies
 
-The runtime uses PyTorch, NumPy, and safetensors. Tests use pytest. Installation
+The core runtime uses PyTorch, NumPy, and safetensors. Tests use pytest. Installation
 requirements are declared in
 [`pyproject.toml`](../pyproject.toml).
 
@@ -15,17 +15,34 @@ lockfile or a complete inventory of the libraries bundled into a binary wheel.
 | `pytest` | `==9.1.1` | Development tests | `MIT` | [pytest 9.1.1 LICENSE](https://github.com/pytest-dev/pytest/blob/9.1.1/LICENSE) |
 | `setuptools` | `>=77` | Build backend | `MIT` | [setuptools LICENSE](https://github.com/pypa/setuptools/blob/main/LICENSE) |
 
+The optional `provider` extra adds the exact tested feature-provider libraries.
+It is unnecessary for the invented feature examples and core CPU tests.
+
+| Package | Version requirement | Purpose | Upstream source license | Official license |
+| --- | --- | --- | --- | --- |
+| `transformers` | `==5.15.0` | Official Qwen implementation and loading | `Apache-2.0` | [Transformers LICENSE](https://github.com/huggingface/transformers/blob/v5.15.0/LICENSE) |
+| `tokenizers` | `==0.22.2` | Matching fast tokenizer | `Apache-2.0` | [tokenizers LICENSE](https://github.com/huggingface/tokenizers/blob/v0.22.2/LICENSE) |
+| `huggingface-hub` | `==1.27.0` | Separately obtaining upstream snapshot files | `Apache-2.0` | [huggingface_hub LICENSE](https://github.com/huggingface/huggingface_hub/blob/v1.27.0/LICENSE) |
+| `accelerate` | `==1.14.0` | Provider loading support | `Apache-2.0` | [Accelerate LICENSE](https://github.com/huggingface/accelerate/blob/v1.14.0/LICENSE) |
+
 License references were checked against these official upstream sources on
-2026-10-18. They describe the named upstream projects. Installed packages can
+2026-10-18 for the core dependencies and 2026-10-20 for the optional provider.
+They describe the named upstream projects. Installed packages can
 contain additional components under other licenses; retain the license and
 notice files supplied with the exact distributions you use.
 
 ## External features and models
 
-The feature-provider interface permits separately supplied model features.
-Model weights, tokenizer assets, model implementation code, and datasets are
-outside this source distribution. Obtain them separately and follow their own
-licenses. The M1 MIT license does not grant rights to those assets.
+The feature-provider interface permits separately supplied model features. The
+Experimental 1 adapter uses the separately obtained official
+`Qwen/Qwen3.5-2B-Base` snapshot at revision
+`b1485b2fa6dfa1287294f269f5fb618e03d52d7c`, with an
+[Apache-2.0 license](https://huggingface.co/Qwen/Qwen3.5-2B-Base/blob/b1485b2fa6dfa1287294f269f5fb618e03d52d7c/LICENSE).
+Donor weights, tokenizer assets, third-party model implementation distributions
+and datasets are outside this source distribution. Obtain them separately and
+follow their own licenses. The M1 MIT license does not grant rights to those
+assets. See the [provider audit](FEATURE_PROVIDER.md) and
+[Experimental 1 rights record](EXPERIMENTAL_1_RIGHTS.md).
 
 CPU execution is sufficient for the included examples and tests. If you choose
 a CUDA installation, PyTorch may install NVIDIA components under separate

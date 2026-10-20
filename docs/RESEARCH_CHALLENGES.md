@@ -2,11 +2,11 @@
 
 M1 is an experimental, MIT-licensed Python toolkit for extracting structured event information from current-turn text. Its numerical components cover event localization (LOC), event type (TYPE), argument-role binding (BIND), polarity (POL), and directed event relations (REL). We welcome **independent technical criticism**, small reproducible counterexamples, and carefully designed research proposals.
 
-**Important release boundary:** this is a **source-only research preview**, not a pretrained language-understanding model. The repository does **not** include trained checkpoints, an operational text feature provider, a public training recipe, or an independent semantic-quality evaluation set. Its examples use invented features and untrained states. Passing numerical/implementation tests does **not** demonstrate that M1 understands text. See [validation scope](VALIDATION.md) and [public interfaces](API.md).
+**Important release boundary:** M1 remains experimental. [M1 Experimental 1](EXPERIMENTAL_1.md) is the first prepared trained-checkpoint candidate; it has not yet been published as a release. Weights and donor assets are separate from the source tree. The existing feature examples still use invented features and untrained states. Passing implementation tests does not establish semantic accuracy, and consumed development results do not replace independent final qualification. See the [Feature Provider audit](FEATURE_PROVIDER.md), [validation scope](VALIDATION.md) and [public interfaces](API.md).
 
 ## Where independent review would help
 
-### 1. LOC — localization across unseen constructions ([Issue #1](https://github.com/XRedMzK/M1/issues/1))
+### 1. LOC — localization across unseen constructions ([Issue #1](https://github.com/XRedMzK/M1-Event-Understanding/issues/1))
 
 **Problem:** identifying the correct event interval on previously unseen linguistic constructions, especially when candidate intervals compete with the span-level NULL alternative or with overlapping event intervals.
 
@@ -20,7 +20,7 @@ M1 is an experimental, MIT-licensed Python toolkit for extracting structured eve
 
 **Code:** [canonical unit segmentation](../src/m1/canonical_units.py), [span/NULL scoring](../src/m1/span_context_assertion_null_v1.py), [relative-context scoring](../src/m1/span_relative_context_assertion_null_v1.py), [event-set loss and exact decoding](../src/m1/typed_event_set_localization_loss_v1.py).
 
-### 2. BIND — argument-role scoring and transfer ([Issue #2](https://github.com/XRedMzK/M1/issues/2))
+### 2. BIND — argument-role scoring and transfer ([Issue #2](https://github.com/XRedMzK/M1-Event-Understanding/issues/2))
 
 **Problem:** assigning the right argument spans to the right event and role, including multiword mentions, multiple events, and legitimately shared participants.
 
@@ -32,11 +32,11 @@ M1 is an experimental, MIT-licensed Python toolkit for extracting structured eve
 - Build invented-score counterexamples tracing at which role/beam step a path is lost; distinguish *search error* from *scoring/model error*.
 - Examine how role conditioning handles neighboring events and legitimate shared arguments. Do not impose a global one-argument/one-event constraint.
 
-Some historical internal experiments reported scoring/transfer failures and no gain from a wider beam, but their trained weights and private datasets are **not included** here; those results cannot currently be reproduced from this repository alone.
+Some historical internal experiments reported scoring/transfer failures and no gain from a wider beam. Their full historical datasets and runs are not included here. The first checkpoint candidate documents its own selected state and measured results; these do not make every historical experiment reproducible from this repository.
 
 **Code:** [complete span enumeration and scorer](../src/m1/joint_argument_span_score_v1.py), [joint role potentials and beam-8 decoder](../src/m1/structured_joint_role_argument_v1.py), [event-conditioned binding](../src/m1/event_conditioned_pair_owner_v1.py), [full-context binding](../src/m1/full_context_parallel_binding_owner_v1.py).
 
-### 3. E3 — three-or-more-event composition ([Issue #3](https://github.com/XRedMzK/M1/issues/3))
+### 3. E3 — three-or-more-event composition ([Issue #3](https://github.com/XRedMzK/M1-Event-Understanding/issues/3))
 
 **Problem:** keeping event identities and argument ownership distinct as text contains three or more interacting events. A participant may correctly fill roles in more than one event, and long spans must remain intact.
 

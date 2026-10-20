@@ -1,8 +1,8 @@
 # Validation scope
 
-This is implementation validation for the experimental `0.1.0a1` source
-candidate. It does not qualify semantic accuracy, language coverage, trained
-weights, a feature provider or a completed M1 freeze.
+This document separates implementation validation, trained-state parity and
+model-quality evidence. None establishes completed M1 qualification. The original
+source-release checks below remain historical observations.
 
 ## Executed checks
 
@@ -56,15 +56,47 @@ The final wheel check deliberately ran the tests outside the checkout with
 `-c /dev/null -p no:cacheprovider`, with the wheel installed and no `PYTHONPATH`.
 The fresh-process test also exercises restoration in a separate interpreter.
 Each example was separately run with `python -I` against the installed package.
-CPU execution used two threads. These are local observations; GitHub Actions is
-configured but no hosted workflow result is claimed before its first run.
+CPU execution used two threads. These are local observations; hosted workflow
+results must be checked for the particular public commit.
 
 ## Remaining evidence
 
 All factor-quality qualifications remain open in this public release: exact
 localization, conditional type identity, full-span/cross-event argument binding,
 polarity on predicted spans and directed relations in the integrated pipeline.
-There is no redistributable trained checkpoint, public training recipe or
-independent end-to-end evaluation corpus in this candidate. Provider/model
-compatibility and resource budgets require separate validation for each real
-deployment. The tests above must not be presented as substitutes for that work.
+The separately prepared [Experimental 1 checkpoint](EXPERIMENTAL_1.md) is a
+pre-release candidate whose weights have not been published. It has a pinned
+provider and real-feature parity evidence, but no public full training recipe or
+redistributable independent end-to-end corpus. Historical RAW quality gates fail.
+The implementation and parity checks must not be presented as substitutes for
+semantic qualification.
+
+
+## Experimental 1 preparation, 2026-10-20
+
+A new CPU-only Python 3.12.3 environment was created and dependencies downloaded
+independently. The built wheel was installed without an editable checkout.
+All **140 tests passed in65.29 seconds**, with no skipped or expected-failure cases,
+running outside the source tree without `PYTHONPATH`. Both original invented
+examples passed under `python -I`; all 68 submodules imported without initializing
+CUDA. `pip check`, compileall and local documentation-link checks passed.
+
+The selected **trained** checkpoint was restored from that installed wheel in
+another isolated process. On16 private real inputs (8 EN + 8 RU, including0–3predicted
+events), all 99,288 TYPE scores,64 LOC arrays,14 HEAD96 arrays, original conditioning
+outputs,144 BIND arrays, beam decisions and52 CAN outputs matched native reference
+hashes. This took9.496 seconds. Neither Gold nor a donor call entered that replay.
+Private corpus/features remain outside the Git and release packages.
+
+The standalone real provider separately reproduced16/16 banks exactly for two
+novel RU/EN inputs. An offline public-only CLI process then ran the trained
+checkpoint successfully. Its inaccurate CAN symbols are retained in
+[the actual smoke output](PROVIDER_CLI_SMOKE.json), not replaced by expected IDs.
+Two earlier provider attempts failed load-time generic-kernel validation before
+any donor forward; corrected validation and regression fixtures precede the
+successful capture. No donor weights or numeric feature recipe changed.
+
+[Machine-readable verification](EXPERIMENTAL_1_VERIFICATION.json),
+[provider parity and resources](PROVIDER_SMOKE.json) and
+[historical failing quality results](EXPERIMENTAL_1_RESULTS.json) have different
+scopes. None is an independent final qualification or completed M1 freeze.
