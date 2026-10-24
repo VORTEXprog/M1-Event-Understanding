@@ -112,7 +112,14 @@ def test_symlinked_bundle_directory_and_physical_leaves_are_rejected(tmp_path):
     directory = tmp_path / "bundle"
     receipt = save(directory)
     alias = tmp_path / "alias"
-    alias.symlink_to(directory, target_is_directory=True)
+    try:
+        alias.symlink_to(directory, target_is_directory=True)
+    except OSError as e:
+        import platform
+        import pytest
+        if platform.system() == "Windows":
+            pytest.skip(f"Windows requires admin privileges to create symlinks: {e}")
+        raise
     with pytest.raises(ValueError):
         load(alias, receipt)
     archive = next(directory.glob("*.safetensors"))
